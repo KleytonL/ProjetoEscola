@@ -12,6 +12,7 @@ public class Professor extends Pessoa implements Autenticavel {
     }
 
     public double bonus(double bonus){
+        System.out.println("Bonus de:" + bonus + " adcionado ao salário");
         return this.salario += bonus;
     }
 
