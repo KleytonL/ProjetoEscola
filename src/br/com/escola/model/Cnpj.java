@@ -3,6 +3,10 @@ package br.com.escola.model;
 public class Cnpj implements Documento {
 
     private String valor;
+    
+    public Cnpj(String valor) {
+        this.valor = valor;
+    }
 
     @Override
     public boolean validaDoc() {
