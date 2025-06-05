@@ -3,8 +3,9 @@ package br.com.escola.model;
 public class Estudante extends Pessoa {
 
     private String matricula;
-    private Integer nota;
-    private Frequencia frequencia;
+    private int nota;
+    private int presencas;
+    private int faltas;
 
     @Override
     void falar() {
@@ -16,16 +17,26 @@ public class Estudante extends Pessoa {
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
-    public Integer getNota() {
+    public int getNota() {
         return nota;
     }
-    public void setNota(Integer nota) {
+    public void setNota(int nota) {
         this.nota = nota;
     }
-    public Frequencia getFrequencia() {
-        return frequencia;
+
+    public int getPresencas() {
+        return presencas;
     }
-    public void setFrequencia(Frequencia frequencia) {
-        this.frequencia = frequencia;
+
+    public void setPresencas(int presencas) {
+        this.presencas = presencas;
+    }
+
+    public int getFaltas() {
+        return faltas;
+    }
+
+    public void setFaltas(int faltas) {
+        this.faltas = faltas;
     }
 }

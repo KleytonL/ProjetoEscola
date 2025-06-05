@@ -1,8 +1,15 @@
 package br.com.escola.model;
 
-public class Professor extends Pessoa {
+import br.com.escola.system.Autenticavel;
+
+public class Professor extends Pessoa implements Autenticavel {
 
     private double salario;
+
+    @Override
+    public boolean senha() {
+        return true;
+    }
 
     public double bonus(double bonus){
         return this.salario += bonus;
@@ -32,4 +39,5 @@ public class Professor extends Pessoa {
     public void setSalario(double salario) {
         this.salario = salario;
     }
+
 }
