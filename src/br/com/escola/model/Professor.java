@@ -6,6 +6,9 @@ public class Professor extends Pessoa implements Autenticavel {
 
     private double salario;
 
+    public Professor() {
+    }
+
     @Override
     public boolean senha() {
         return true;
@@ -40,5 +43,7 @@ public class Professor extends Pessoa implements Autenticavel {
     public void setSalario(double salario) {
         this.salario = salario;
     }
+
+    
 
 }

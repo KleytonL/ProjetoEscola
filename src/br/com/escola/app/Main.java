@@ -1,5 +1,6 @@
 package br.com.escola.app;
 
+import br.com.escola.model.Estudante;
 import java.util.Scanner;
 
 public class Main {
@@ -27,6 +28,18 @@ public class Main {
             }
 
     } while (resposta < 1 || resposta > 5);
+
+    switch (resposta) {
+        case 1:
+            Estudante e1 = new Estudante();
+            break;
+        
+        case 2:
+            
+
+        default:
+            
+    }
         
         
 

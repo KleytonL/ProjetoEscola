@@ -7,6 +7,10 @@ public class Cozinheira extends Pessoa{
 private double salario;
 private List <String> listaCompras;
 
+    public Cozinheira(){
+        
+    }
+
     public Cozinheira(double salario) {
         super();
         this.salario = salario;
