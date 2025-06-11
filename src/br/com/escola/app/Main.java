@@ -1,6 +1,9 @@
 package br.com.escola.app;
 
+import br.com.escola.model.Cozinheira;
+import br.com.escola.model.Diretor;
 import br.com.escola.model.Estudante;
+import br.com.escola.model.Professor;
 import java.util.Scanner;
 
 public class Main {
@@ -16,18 +19,17 @@ public class Main {
             System.out.println();
             System.out.println("1-Aluno(a)");
             System.out.println("2-Professor(a)");
-            System.out.println("3-Administração(a)");
-            System.out.println("4-Diretor(a)");
-            System.out.println("5-Cozinheiro(a)");
+            System.out.println("3-Diretor(a)");
+            System.out.println("4-Cozinheiro(a)");
             System.out.println("----------------------------------");
 
             resposta = sc.nextInt();
 
-            if (resposta < 1 || resposta > 5){
+            if (resposta < 1 || resposta > 4){
                 System.out.println("Opção inválida, tente novamente:");
             }
 
-    } while (resposta < 1 || resposta > 5);
+    } while (resposta < 1 || resposta > 4);
 
     switch (resposta) {
         case 1:
@@ -35,14 +37,17 @@ public class Main {
             break;
         
         case 2:
-            
+            Professor p1 = new Professor();
+            break;
+        
+        case 3:
+            Diretor d1 = new Diretor();
+            break;    
 
-        default:
-            
+        case 4:
+            Cozinheira c1 = new Cozinheira();
+            break;
     }
         
-        
-
-
     }
 }

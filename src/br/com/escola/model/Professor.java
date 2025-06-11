@@ -31,6 +31,8 @@ public class Professor extends Pessoa implements Autenticavel {
         this.salario = salario;
     }
 
+    
+
     @Override
     void falar(){
 
