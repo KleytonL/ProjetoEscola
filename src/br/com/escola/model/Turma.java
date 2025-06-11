@@ -2,13 +2,18 @@ package br.com.escola.model;
 
 import java.util.List;
 
-
-
 public class Turma {
-
     private List<Estudante> estudante;
+
     private Professor professor;
     private String materia;
+
+    public void dadosTurma(){
+        System.out.println("Dados da turma:");
+        System.out.println("Professor: " + getProfessor());
+        System.out.println("Matéria:" + getMateria());
+        System.out.println("Alunos: " + getEstudante());
+    }
 
     public List<Estudante> getEstudante() {
         return estudante;
@@ -32,12 +37,5 @@ public class Turma {
 
     public void setMateria(String materia) {
         this.materia = materia;
-    }
-
-    public void dadosTurma(){
-        System.out.println("Dados da turma:");
-        System.out.println("Alunos: " + getEstudante());
-        System.out.println("Professor: " + getProfessor());
-        System.out.println("Matéria:" + getMateria());
     }
 }

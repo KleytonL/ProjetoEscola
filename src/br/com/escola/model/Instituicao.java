@@ -1,11 +1,28 @@
 package br.com.escola.model;
 
+import br.com.escola.system.Autenticavel;
+import br.com.escola.system.Sistema;
+
 public class Instituicao {
 
     private String nome;
     private Endereco endereco;
     private Grau grau;
     private Administracao adm;
+
+    public Instituicao(String nome, Endereco endereco, Grau grau, Administracao adm) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.grau = grau;
+        this.adm = adm;
+    }
+
+    public Sistema acessarSistema(Autenticavel autenticavel) {
+        if(autenticavel.senha()) {
+            new Sistema();
+        }
+        return null;
+    }
 
     public String getNome() {
         return nome;
