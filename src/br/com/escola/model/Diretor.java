@@ -1,6 +1,8 @@
 package br.com.escola.model;
 
-public class Diretor extends Pessoa {
+import br.com.escola.system.Autenticavel;
+
+public class Diretor extends Pessoa implements Autenticavel {
 
     private double salario;
 
@@ -14,4 +16,8 @@ public class Diretor extends Pessoa {
 
     }
 
+    @Override
+    public boolean senha() {
+        return true;
+    }
 }

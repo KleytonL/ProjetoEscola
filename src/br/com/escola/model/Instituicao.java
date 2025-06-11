@@ -48,4 +48,14 @@ public class Instituicao {
     public void setAdm(Administracao adm) {
         this.adm = adm;
     }
+
+    @Override
+    public String toString() {
+        return "Instituicao{" +
+                "nome='" + nome + '\'' +
+                ", endereco=" + endereco +
+                ", grau=" + grau +
+                ", adm=" + adm +
+                '}';
+    }
 }
