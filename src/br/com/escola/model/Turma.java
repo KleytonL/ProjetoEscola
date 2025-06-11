@@ -40,5 +40,4 @@ public class Turma {
         System.out.println("Professor: " + getProfessor());
         System.out.println("Matéria:" + getMateria());
     }
-
 }
