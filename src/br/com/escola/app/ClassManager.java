@@ -9,12 +9,12 @@ public class ClassManager {
 
     static Scanner sc = new Scanner(System.in);
 
-    public static Instituicao instanciaInstituicaoPadrao() {
+    public static Instituicao instanciarInstituicaoPadrao() {
         return new Instituicao("UniFil", new Endereco("Av. J.K.", "Londrina",
                 "Paraná", "Brasil"), Grau.SUPERIOR, Administracao.PRIVADA);
     }
 
-    public static Diretor instanciaDiretorPadrao() {
+    public static Diretor instanciarDiretorPadrao() {
         Diretor diretor = new Diretor(3150.0);
         diretor.setNome("Rodolfo");
         diretor.setSexo(Sexo.MASC);
@@ -24,7 +24,7 @@ public class ClassManager {
         return diretor;
     }
 
-    public static Cozinheira instanciaCozinheiraPadrao() {
+    public static Cozinheira instanciarCozinheiraPadrao() {
         Cozinheira cozinheira = new Cozinheira(1500.0);
         cozinheira.setNome("Jéssica");
         cozinheira.setSexo(Sexo.FEM);
@@ -55,11 +55,15 @@ public class ClassManager {
         estudante.setDocumento(new Cpf("999-222-444-55"));
         estudante.setMatricula("244041004");
         estudante.getNotas().add(98);
+        estudante.getNotas().add(78);
+        estudante.getNotas().add(50);
+        estudante.getNotas().add(100);
+        estudante.getNotas().add(67);
         estudante.setFaltas(3);
         return estudante;
     }
 
-    public static Instituicao instanciaInstituicao() {
+    public static Instituicao instanciarInstituicao() {
         Instituicao instituicao = new Instituicao();
 
         System.out.println("Informe o nome: ");
@@ -111,7 +115,7 @@ public class ClassManager {
         return instituicao;
     }
 
-    public static Diretor instanciaDiretor() {
+    public static Diretor instanciarDiretor() {
         Diretor diretor = new Diretor();
         System.out.println("Informe o nome: ");
         diretor.setNome(sc.nextLine());
@@ -152,7 +156,7 @@ public class ClassManager {
         return diretor;
     }
 
-    public static Cozinheira instanciaCozinheira() {
+    public static Cozinheira instanciarCozinheira() {
         Cozinheira cozinheira = new Cozinheira();
         System.out.println("Informe o nome: ");
         cozinheira.setNome(sc.nextLine());
@@ -214,7 +218,7 @@ public class ClassManager {
         return cozinheira;
     }
 
-    public static Professor instanciaProfessor() {
+    public static Professor instanciarProfessor() {
         Professor professor = new Professor();
         System.out.println("Informe o nome: ");
         professor.setNome(sc.nextLine());
@@ -255,7 +259,7 @@ public class ClassManager {
         return professor;
     }
 
-    public static Estudante instanciaEstudante() {
+    public static Estudante instanciarEstudante() {
         Estudante estudante = new Estudante();
         System.out.println("Informe o nome: ");
         estudante.setNome(sc.nextLine());

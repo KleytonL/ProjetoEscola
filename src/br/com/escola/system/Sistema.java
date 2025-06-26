@@ -60,7 +60,7 @@ public class Sistema {
                         opt = sc.nextInt();
                         switch (opt) {
                             case 1:
-                                professores.add(ClassManager.instanciaProfessor());
+                                professores.add(ClassManager.instanciarProfessor());
                                 novaTurma.setProfessor(professores.getLast());
                                 break;
                             case 2:
@@ -103,7 +103,7 @@ public class Sistema {
                                 System.out.println("Informe quantos estudantes deseja cadastrar: ");
                                 int qtd = sc.nextInt();
                                 for (int i = 0; i < qtd; i++) {
-                                    estudantes.add(ClassManager.instanciaEstudante());
+                                    estudantes.add(ClassManager.instanciarEstudante());
                                     novaTurma.adicionarEstudante(estudantes.getLast());
                                 }
                                 break;
@@ -171,6 +171,8 @@ public class Sistema {
                         System.out.println("1 - Adicionar estudante");
                         System.out.println("2 - Remover estudante");
                         System.out.println("3 - Não alterar");
+                        System.out.println("0 - Voltar");
+                        System.out.print("Escolha sua opção: ");
                         int qtd;
                         opt = sc.nextInt();
                         switch (opt) {
@@ -237,19 +239,25 @@ public class Sistema {
     }
 
     public void calcularNotas() {
-        int opt;
+        notas = new Notas();
+        int opt, index;
         do {
             System.out.println("\n----- Calcular notas -----");
-            System.out.println("Deseja calcular:");
             System.out.println("1 - Média do estudante");
             System.out.println("2 - Média da turma");
             System.out.println("3 - Ordenar média por estudante");
             System.out.println("4 - Ordenar média por turma");
-            System.out.println("0 - voltar");
+            System.out.println("0 - Voltar");
             opt = sc.nextInt();
             switch (opt) {
                 case 1:
-                    notas.calculaMedia();
+                    index = 0;
+                    for(Estudante e : estudantes) {
+                        System.out.println(index + " - " + e);
+                        index++;
+                    }
+                    System.out.print("Escolha um estudante para validar sua média: ");
+                    notas.validaMediaEstudante(estudantes.get(sc.nextInt()));
                     break;
                 case 2:
                     break;
@@ -274,12 +282,14 @@ public class Sistema {
             System.out.println("1 - Adicionar novo estudante");
             System.out.println("2 - Remover estudante existente");
             System.out.println("3 - Listar todos os estudantes");
+            System.out.println("0 - Voltar");
             System.out.print("Escolha uma opção: ");
             opt = sc.nextInt();
-
+            sc.nextLine();
             switch (opt) {
                 case 1:
-                    estudantes.add(ClassManager.instanciaEstudante());
+                    estudantes.add(ClassManager.instanciarEstudante());
+                    System.out.println("Estudante cadastrado!");
                     break;
                 case 2:
                     index = 0;
@@ -290,8 +300,10 @@ public class Sistema {
                     System.out.print("Escolha o estudante que deseja remover: ");
                     opt = sc.nextInt();
                     estudantes.remove(opt);
+                    System.out.println("Estudante removido!");
                     break;
                 case 3:
+                    System.out.println("Lista de todos os estudantes");
                     index = 0;
                     for(Estudante e : estudantes) {
                         System.out.println(index + " - " + e);
@@ -309,7 +321,48 @@ public class Sistema {
     }
 
     public void gerenciarProfessores() {
+        int opt, index;
+        do {
+            System.out.println("\n----- Gerenciar professores -----");
+            System.out.println("1 - Adicionar novo professor");
+            System.out.println("2 - Remover professor existente");
+            System.out.println("3 - Listar todos os professores");
+            System.out.println("0 - Voltar");
+            System.out.print("Escolha uma opção: ");
+            opt = sc.nextInt();
+            sc.nextLine();
+            switch (opt) {
+                case 1:
+                    professores.add(ClassManager.instanciarProfessor());
+                    System.out.println("Professor cadastrado!");
+                    break;
+                case 2:
+                    index = 0;
+                    for(Professor p : professores) {
+                        System.out.println(index + " - " + p);
+                        index++;
+                    }
+                    System.out.print("Escolha o professor que deseja remover: ");
+                    opt = sc.nextInt();
+                    professores.remove(opt);
+                    System.out.println("Professor removido!");
+                    break;
+                case 3:
+                    System.out.println("Lista de todos os professores");
+                    index = 0;
+                    for(Professor p : professores) {
+                        System.out.println(index + " - " + p);
+                        index++;
+                    }
+                    break;
+                case 0:
+                    System.out.println("Retornando...");
+                    break;
+                default:
+                    break;
 
+            }
+        } while (opt != 0);
     }
 
     public void cadastrarProfessor(Professor professor) {

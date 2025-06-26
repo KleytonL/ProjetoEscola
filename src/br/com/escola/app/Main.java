@@ -3,7 +3,6 @@ package br.com.escola.app;
 import br.com.escola.model.*;
 import br.com.escola.system.Sistema;
 
-import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -11,16 +10,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Instituicao faculdade = ClassManager.instanciaInstituicaoPadrao();
+        Instituicao faculdade = ClassManager.instanciarInstituicaoPadrao();
         faculdade.exibirDados();
         Sistema sistema;
 
-        Diretor diretor = ClassManager.instanciaDiretorPadrao();
+        Diretor diretor = ClassManager.instanciarDiretorPadrao();
         diretor.exibirDados();
         diretor.falar();
         diretor.gerencia();
 
-        Cozinheira cozinheira = ClassManager.instanciaCozinheiraPadrao();
+        Cozinheira cozinheira = ClassManager.instanciarCozinheiraPadrao();
         cozinheira.exibirDados();
         cozinheira.falar();
         cozinheira.getListaDeAlimentos();
