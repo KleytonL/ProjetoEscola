@@ -22,4 +22,9 @@ public class Cpf implements Documento {
         }
         return "Documento inválido!";
     }
+
+    @Override
+    public String toString() {
+        return this.valor;
+    }
 }

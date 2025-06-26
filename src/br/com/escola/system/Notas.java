@@ -1,4 +1,6 @@
-package br.com.escola.model;
+package br.com.escola.system;
+
+import br.com.escola.model.Estudante;
 
 import java.util.List;
 
@@ -13,7 +15,7 @@ public class Notas {
     public double calculaMedia() {
         int media = 0;
         for(Estudante e : alunos) {
-            media += e.getNota();
+            media += e.getNotas().size();
         }
         return media / alunos.size();
     }
@@ -25,7 +27,7 @@ public class Notas {
     public void validaMediaGeral() {
         int media = 0;
         for(Estudante e : alunos) {
-            media += e.getNota();
+            media += e.getNotas().size();
         }
 
         if(media / alunos.size() < 70) {

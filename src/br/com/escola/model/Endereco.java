@@ -41,11 +41,9 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "Endereco{" +
-                "rua='" + rua + '\'' +
-                ", cidade='" + cidade + '\'' +
-                ", estado='" + estado + '\'' +
-                ", pais='" + pais + '\'' +
-                '}';
+        return "Rua - " + rua +
+                ", Cidade - " + cidade +
+                ", Estado - " + estado +
+                ", Pais - " + pais;
     }
 }

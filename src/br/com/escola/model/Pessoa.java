@@ -10,7 +10,7 @@ public abstract class Pessoa {
     private Endereco endereco;
     private Documento documento;
 
-    abstract void falar();
+    abstract public void falar();
 
     public String getNome() {
         return nome;

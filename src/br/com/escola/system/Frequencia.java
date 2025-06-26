@@ -1,4 +1,6 @@
-package br.com.escola.model;
+package br.com.escola.system;
+
+import br.com.escola.model.Estudante;
 
 public class Frequencia {
 

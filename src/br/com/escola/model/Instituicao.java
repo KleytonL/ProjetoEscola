@@ -10,6 +10,10 @@ public class Instituicao {
     private Grau grau;
     private Administracao adm;
 
+    public Instituicao() {
+
+    }
+
     public Instituicao(String nome, Endereco endereco, Grau grau, Administracao adm) {
         this.nome = nome;
         this.endereco = endereco;
@@ -19,9 +23,19 @@ public class Instituicao {
 
     public Sistema acessarSistema(Autenticavel autenticavel) {
         if(autenticavel.senha()) {
-            new Sistema();
+            System.out.println("Acesso liberado ao usuário: " + autenticavel);
+            return new Sistema();
         }
         return null;
+    }
+
+    public void exibirDados() {
+        System.out.println("\n----- Instituição -----");
+        System.out.println("Nome: " + nome);
+        System.out.println("Endereço: " + endereco);
+        System.out.println("Grau de ensino: " + grau);
+        System.out.println("Adminstração: " + adm);
+        System.out.println("-----------------------\n");
     }
 
     public String getNome() {
@@ -51,11 +65,6 @@ public class Instituicao {
 
     @Override
     public String toString() {
-        return "Instituicao{" +
-                "nome='" + nome + '\'' +
-                ", endereco=" + endereco +
-                ", grau=" + grau +
-                ", adm=" + adm +
-                '}';
+        return nome;
     }
 }

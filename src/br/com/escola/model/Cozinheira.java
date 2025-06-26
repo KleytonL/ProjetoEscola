@@ -1,19 +1,22 @@
 package br.com.escola.model;
 
+import br.com.escola.util.DataUtil;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cozinheira extends Pessoa{
 
 private double salario;
-private List <String> listaCompras;
+private List<String> listaDeAlimentos;
 
     public Cozinheira(){
-        
+        listaDeAlimentos = new ArrayList<>();
     }
 
     public Cozinheira(double salario) {
-        super();
         this.salario = salario;
+        listaDeAlimentos = new ArrayList<>();
     }
 
     public double bonus(double bonus){
@@ -21,20 +24,29 @@ private List <String> listaCompras;
         return this.salario += bonus;
     }
 
-    public void escolheCardarpio(String item){
-        System.out.println("O prato de hoje será:" + item);
+    public void escolheCardarpio(int item){
+        System.out.println("O prato de hoje será:" + listaDeAlimentos.get(item));
     }
 
     public void addLista(String item){
-        listaCompras.add(item);
+        listaDeAlimentos.add(item);
     }
 
+    @Override
+    public void falar(){
+        System.out.println("A cozinheira está falando!");
+    }
 
-
-@Override
-void falar(){
-
-}
+    public void exibirDados() {
+        System.out.println("\n--- Cozinheira ---");
+        System.out.println("Nome: " + getNome());
+        System.out.println("Sexo: " + getSexo());
+        System.out.println("Data de Nascimento: " + DataUtil.formatarParaString(getDataNascimento()));
+        System.out.println("Endereço: " + getEndereco());
+        System.out.println("CPF: " + getDocumento());
+        System.out.println("Salário: " + getSalario());
+        System.out.println("-------------------\n");
+    }
 
     public double getSalario() {
         return salario;
@@ -44,14 +56,17 @@ void falar(){
         this.salario = salario;
     }
 
-    public List<String> getListaCompras() {
-        return listaCompras;
+    public List<String> getListaDeAlimentos() {
+        return listaDeAlimentos;
     }
 
-    public void setListaCompras(List<String> listaCompras) {
-        this.listaCompras = listaCompras;
+    public void setListaDeAlimentos(List<String> listaDeAlimentos) {
+        this.listaDeAlimentos = listaDeAlimentos;
     }
 
-
+    @Override
+    public String toString() {
+        return this.getNome();
+    }
 
 }

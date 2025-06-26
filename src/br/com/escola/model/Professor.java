@@ -1,12 +1,19 @@
 package br.com.escola.model;
 
 import br.com.escola.system.Autenticavel;
+import br.com.escola.util.DataUtil;
 
 public class Professor extends Pessoa implements Autenticavel {
 
+    static int contador = 0;
     private double salario;
 
     public Professor() {
+    }
+
+    public Professor(double salario) {
+        super();
+        this.salario = salario;
     }
 
     @Override
@@ -20,23 +27,27 @@ public class Professor extends Pessoa implements Autenticavel {
     }
 
     public void aulaDada(){
-        int contador = 0;
         System.out.println("Aula registrada");
         contador++;
-        System.out.println("Você tem um total de " + contador + "aulas dadas esse mês");
+        System.out.println(getNome() + " tem um total de " + contador + " aulas dadas esse mês");
     }
-
-    public Professor(double salario) {
-        super();
-        this.salario = salario;
-    }
-
-    
 
     @Override
-    void falar(){
-
+    public void falar(){
+        System.out.println("O professor está falando!");
     }
+
+    public void exibirDados() {
+        System.out.println("\n--- Professor ---");
+        System.out.println("Nome: " + getNome());
+        System.out.println("Sexo: " + getSexo());
+        System.out.println("Data de Nascimento: " + DataUtil.formatarParaString(getDataNascimento()));
+        System.out.println("Endereço: " + getEndereco());
+        System.out.println("CPF: " + getDocumento());
+        System.out.println("Salário: " + getSalario());
+        System.out.println("------------------\n");
+    }
+
 
     public double getSalario() {
         return salario;
@@ -46,6 +57,9 @@ public class Professor extends Pessoa implements Autenticavel {
         this.salario = salario;
     }
 
-    
+    @Override
+    public String toString() {
+        return this.getNome();
+    }
 
 }

@@ -24,4 +24,8 @@ public class Cnpj implements Documento {
         return "Documento inválido!";
     }
 
+    @Override
+    public String toString() {
+        return this.valor;
+    }
 }
