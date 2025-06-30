@@ -120,6 +120,10 @@ public class Sistema {
                     break;
                 case 2:
                     index = 0;
+                    if(turmas.isEmpty()) {
+                        System.out.println("Não há turmas cadastradas!");
+                        break;
+                    }
                     System.out.println("Escolha a turma que deseja gerenciar: ");
                     for(Turma t : turmas) {
                         System.out.println(index + " - " + t);
@@ -186,6 +190,7 @@ public class Sistema {
                                 }
                                 System.out.println("Informe a quantidade de estudantes que deseja adicionar:");
                                 qtd = sc.nextInt();
+                                System.out.println("Informe o estudante:");
                                 if(qtd > (estudantes.size() - turmaGerenciada.getEstudantes().size())) {
                                     System.out.println("Não há quantidade suficiente de estudantes cadastrados...");
                                     System.out.println("Escolha uma quantidade menor ou cadastre mais estudantes.");
@@ -224,6 +229,18 @@ public class Sistema {
                     break;
                 case 3:
                     index = 0;
+                    if(turmas.isEmpty()) {
+                        System.out.println("Não há turmas cadastradas!");
+                        break;
+                    }
+                    System.out.println("Escolha a turma que deseja remover: ");
+                    for(Turma t : turmas) {
+                        System.out.println(index + " - " + t);
+                        index++;
+                    }
+                    System.out.print("Escolha uma opção: ");
+                    opt = sc.nextInt();
+                    turmas.remove(opt);
                     break;
                 case 0:
                     System.out.println("Retornando...");
@@ -260,10 +277,22 @@ public class Sistema {
                     notas.validaMediaEstudante(estudantes.get(sc.nextInt()));
                     break;
                 case 2:
+                    index = 0;
+                    for(Turma t : turmas) {
+                        System.out.println(index + " - " + t);
+                        index++;
+                    }
+                    System.out.print("Escolha uma turma para validar sua média: ");
+                    notas.validaMediaTurma(turmas.get(sc.nextInt()));
                     break;
                 case 3:
+                    notas.ordenaMediaEstudante(estudantes);
                     break;
                 case 4:
+                    notas.ordenaMediaTurma(turmas);
+                    break;
+                case 0:
+                    System.out.println("Retornando...");
                     break;
                 default:
                     break;
@@ -272,7 +301,50 @@ public class Sistema {
     }
 
     public void gerenciarFaltas() {
-        System.out.println("\n----- Gerenciamento de faltas -----");
+        freq = new Frequencia();
+        int opt, index;
+        do {
+            System.out.println("\n----- Calcular frequencia -----");
+            System.out.println("1 - Validar presença");
+            System.out.println("2 - Abonar faltas");
+            System.out.println("3 - Exibir frequencia");
+            System.out.println("0 - Voltar");
+            opt = sc.nextInt();
+            switch (opt) {
+                case 1:
+                    index = 0;
+                    for(Estudante e : estudantes) {
+                        System.out.println(index + " - " + e);
+                        index++;
+                    }
+                    System.out.print("Escolha um estudante: ");
+                    freq.validaPresenca(estudantes.get(sc.nextInt()));
+                    break;
+                case 2:
+                    index = 0;
+                    for(Estudante e : estudantes) {
+                        System.out.println(index + " - " + e);
+                        index++;
+                    }
+                    System.out.print("Escolha um estudante: ");
+                    freq.abonaFalta(estudantes.get(sc.nextInt()));
+                    break;
+                case 3:
+                    index = 0;
+                    for(Estudante e : estudantes) {
+                        System.out.println(index + " - " + e);
+                        index++;
+                    }
+                    System.out.print("Escolha um estudante: ");
+                    freq.exibirFrequencia(estudantes.get(sc.nextInt()));
+                    break;
+                case 0:
+                    System.out.println("Retornando...");
+                    break;
+                default:
+                    break;
+            }
+        } while (opt != 0);
     }
 
     public void gerenciarEstudantes() {
@@ -288,7 +360,7 @@ public class Sistema {
             sc.nextLine();
             switch (opt) {
                 case 1:
-                    estudantes.add(ClassManager.instanciarEstudante());
+                    estudantes.add(ClassManager.instanciarEstudantePadrao());
                     System.out.println("Estudante cadastrado!");
                     break;
                 case 2:

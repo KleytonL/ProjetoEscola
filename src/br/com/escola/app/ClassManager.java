@@ -59,6 +59,7 @@ public class ClassManager {
         estudante.getNotas().add(50);
         estudante.getNotas().add(100);
         estudante.getNotas().add(67);
+        estudante.setPresencas(13);
         estudante.setFaltas(3);
         return estudante;
     }
@@ -260,6 +261,7 @@ public class ClassManager {
     }
 
     public static Estudante instanciarEstudante() {
+        sc.nextLine();
         Estudante estudante = new Estudante();
         System.out.println("Informe o nome: ");
         estudante.setNome(sc.nextLine());
@@ -296,8 +298,12 @@ public class ClassManager {
         System.out.println("Informe a matricula: ");
         estudante.setMatricula(sc.nextLine());
 
-        System.out.println("Informe a nota média: ");
-        estudante.getNotas().add(sc.nextInt());
+        System.out.println("Informe a quantas notas irá adicionar: ");
+        int qtdNotas = sc.nextInt();
+        for(int i = 0; i < qtdNotas; i++) {
+            System.out.println((i + 1) + "° nota: ");
+            estudante.getNotas().add(sc.nextInt());
+        }
 
         System.out.println("Informe a quantidade de faltas:");
         estudante.setFaltas(sc.nextInt());

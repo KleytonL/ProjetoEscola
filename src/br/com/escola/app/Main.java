@@ -43,6 +43,7 @@ public class Main {
             System.out.println("0 - Sair");
             System.out.print("Escolha uma opção: ");
             opt = sc.nextInt();
+            sc.nextLine();
 
             switch (opt) {
                 case 1:
