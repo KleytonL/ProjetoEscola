@@ -360,7 +360,7 @@ public class Sistema {
             sc.nextLine();
             switch (opt) {
                 case 1:
-                    estudantes.add(ClassManager.instanciarEstudantePadrao());
+                    estudantes.add(ClassManager.instanciarEstudante());
                     System.out.println("Estudante cadastrado!");
                     break;
                 case 2:
